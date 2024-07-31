@@ -1,0 +1,65 @@
+.btn {
+  position: relative;
+  width: fit-content;
+  min-width: 200px;
+  font-size: 30px;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: all 0.4s ease-in-out;
+
+  &:before,
+  &:after,
+  span::before,
+  span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &::before {
+    top: -2px;
+    left: -2px;
+    border-top: 2px solid $red;
+    border-left: 2px solid $red;
+  }
+
+  &::after {
+    top: -2px;
+    right: -2px;
+    border-top: 2px solid $red;
+    border-right: 2px solid $red;
+  }
+
+  span {
+    &::before {
+      bottom: -2px;
+      left: -2px;
+      border-bottom: 2px solid $red;
+      border-left: 2px solid $red;
+    }
+
+    &::after {
+      bottom: -2px;
+      right: -2px;
+      border-bottom: 2px solid $red;
+      border-right: 2px solid $red;
+    }
+  }
+
+  @include for-desktop {
+    &:hover {
+      color: $red;
+
+      &::before,
+      &::after,
+      span::before,
+      span::after {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  transition: all 0.2s ease-in-out;
+  z-index: 1000;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 30px 0;
+  }
+
+  &__nav {
+    .nav {
+      &__list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      &__link {
+        font-size: 24px;
+        line-height: normal;
+        text-transform: uppercase;
+
+        color: #797878;
+        padding: 10px 20px;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        transition: all 0.2s ease-in-out;
+        span {
+          transition: all 0.2s ease-in-out;
+
+          &::before {
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-top: 2px solid $red;
+            border-left: 2px solid $red;
+            transition: all 0.2s ease-in-out;
+            opacity: 0;
+          }
+          &::after {
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-right: 2px solid $red;
+            border-bottom: 2px solid $red;
+            transition: all 0.2s ease-in-out;
+            opacity: 0;
+          }
+        }
+        &::before {
+          width: 5px;
+          height: 5px;
+          background: transparent;
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          border-right: 2px solid $red;
+          border-top: 2px solid $red;
+          transition: all 0.2s ease-in-out;
+          opacity: 0;
+        }
+        &::after {
+          width: 5px;
+          height: 5px;
+          background: transparent;
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          border-left: 2px solid $red;
+          border-bottom: 2px solid $red;
+          transition: all 0.2s ease-in-out;
+          opacity: 0;
+        }
+
+        @include for-desktop {
+          &:hover {
+            &::before {
+              opacity: 1;
+              right: 5px;
+              top: 5px;
+            }
+            &::after {
+              opacity: 1;
+              left: 5px;
+              bottom: 5px;
+            }
+            span {
+              color: $red;
+
+              &::before {
+                opacity: 1;
+                left: 5px;
+                top: 5px;
+              }
+              &::after {
+                opacity: 1;
+                right: 5px;
+                bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
