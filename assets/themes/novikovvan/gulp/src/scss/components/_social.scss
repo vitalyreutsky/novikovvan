@@ -1,0 +1,87 @@
+.social {
+  &__list {
+    display: flex;
+    gap: 15px;
+
+    li a {
+      display: block;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      color: $white;
+      transition: 0.5s;
+    }
+    li a span {
+      position: absolute;
+      transition: transform 0.5s;
+    }
+    li a span:nth-child(1),
+    li a span:nth-child(3) {
+      width: 100%;
+      height: 1px;
+      background: $white;
+    }
+    li a span:nth-child(1) {
+      top: 0;
+      left: 0;
+      transform-origin: right;
+    }
+    li a:hover span:nth-child(1) {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s;
+    }
+
+    li a span:nth-child(3) {
+      bottom: 0;
+      left: 0;
+      transform-origin: left;
+    }
+    li a:hover span:nth-child(3) {
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s;
+    }
+
+    li a span:nth-child(2),
+    li a span:nth-child(4) {
+      width: 2px;
+      height: 100%;
+      background: $white;
+    }
+    li a span:nth-child(2) {
+      top: 0;
+      left: 0;
+      transform: scale(0);
+      transform-origin: bottom;
+    }
+    li a:hover span:nth-child(2) {
+      transform: scale(1);
+      transform-origin: top;
+      transition: transform 0.5s;
+    }
+    li a span:nth-child(4) {
+      top: 0;
+      right: 0;
+      transform: scale(0);
+      transform-origin: top;
+    }
+    li a:hover span:nth-child(4) {
+      transform: scale(1);
+      transform-origin: bottom;
+      transition: transform 0.5s;
+    }
+  }
+
+  &__item {
+    svg {
+      width: 27px;
+      height: 27px;
+      fill: $white;
+    }
+  }
+
+  &__link {
+    padding: 7px;
+  }
+}

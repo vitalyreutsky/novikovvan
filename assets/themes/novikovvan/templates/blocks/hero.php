@@ -22,5 +22,9 @@ $image = get_field('image');
             </a>
          </div>
       </div>
+
+      <div class="hero__social">
+         <?php get_template_part('templates/components/social-media'); ?>
+      </div>
    </div>
 </div>
