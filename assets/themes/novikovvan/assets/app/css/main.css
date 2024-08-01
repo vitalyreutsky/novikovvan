@@ -531,6 +531,7 @@ p {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  padding-top: 150px;
   max-width: 700px;
   text-align: center;
   z-index: 1;
