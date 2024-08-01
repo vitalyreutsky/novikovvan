@@ -2,13 +2,14 @@
 
 namespace App\Acf\Blocks;
 
-final class Init {
+final class Init
+{
 	/**
 	 * @var Helpers\BlockItem[]
 	 */
 	private static array $blocks = array(
-        General\Hero::class,
-
+		General\Hero::class,
+		General\About::class,
 	);
 
 	public function __construct()
@@ -21,5 +22,4 @@ final class Init {
 		}
 		RegisterBlock::init();
 	}
-
 }

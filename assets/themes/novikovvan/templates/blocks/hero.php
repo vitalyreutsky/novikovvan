@@ -5,7 +5,7 @@ $image = get_field('image');
 $statistics = get_field('statistics');
 ?>
 
-<div class="hero count-block" style="background-image: url('<?php echo wp_get_attachment_url($image); ?>');">
+<div class="hero count-block bg-block" style="background-image: url('<?php echo wp_get_attachment_url($image); ?>');">
    <div class="container hero__container">
       <div class="hero__wrapper">
          <div class="hero__info">
