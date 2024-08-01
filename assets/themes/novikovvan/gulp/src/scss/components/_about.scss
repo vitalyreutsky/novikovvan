@@ -4,14 +4,21 @@
   }
 
   &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  &__inner {
     display: flex;
     gap: 50px;
   }
 
-  &__wrapper {
-    position: relative;
+  &__title {
     flex-shrink: 0;
-    z-index: 1;
   }
 
   .achievements {
@@ -146,7 +153,7 @@
 .ms--numbers {
   position: absolute;
   left: calc(50% - 380px);
-  top: 0;
+  top: -100px;
   pointer-events: none;
 }
 .ms--numbers .ms-slide {
@@ -198,7 +205,6 @@
 .ms--titles {
   position: absolute;
   left: calc(50% - 420px);
-  top: calc(50% - 85px);
   z-index: 1;
   pointer-events: none;
 }

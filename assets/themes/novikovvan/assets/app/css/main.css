@@ -305,6 +305,9 @@ p {
   font-size: 20px;
   line-height: 150%;
 }
+p * {
+  color: #ff0000;
+}
 @media (max-width: 1024px) {
   p {
     font-size: 14px;
@@ -325,6 +328,40 @@ p {
     text-align: left;
     font-size: 28px;
     line-height: normal;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 15px;
+}
+@media (max-width: 1024px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 10px;
+  }
+}
+
+p:not(:last-child) {
+  margin-bottom: 15px;
+}
+p br {
+  display: none;
+}
+p + *:not(p, ul) {
+  margin-top: 40px;
+}
+@media (max-width: 1024px) {
+  p + *:not(p, ul) {
+    margin-top: 30px;
   }
 }
 
@@ -802,16 +839,28 @@ p {
   background-image: linear-gradient(to top, rgb(0, 0, 0), rgba(49, 39, 39, 0.6901960784));
 }
 .about__container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 70px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.about__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 50px;
 }
-.about__wrapper {
-  position: relative;
+.about__title {
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  z-index: 1;
 }
 .about .achievements__slider {
   display: -webkit-box;
@@ -973,7 +1022,7 @@ p {
 .ms--numbers {
   position: absolute;
   left: calc(50% - 380px);
-  top: 0;
+  top: -100px;
   pointer-events: none;
 }
 
@@ -1046,7 +1095,6 @@ p {
 .ms--titles {
   position: absolute;
   left: calc(50% - 420px);
-  top: calc(50% - 85px);
   z-index: 1;
   pointer-events: none;
 }
