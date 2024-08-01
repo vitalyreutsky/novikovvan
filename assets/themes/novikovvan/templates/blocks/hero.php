@@ -27,9 +27,12 @@ $statistics = get_field('statistics');
             <div class="hero__statistics statistics__items">
                <?php foreach ($statistics as $key => $item) :  ?>
                   <div class="statistics__item">
-                     <div class="statistics__item-count count" data-target="<?php echo $item['count']; ?>"><span>0</span><p>+</p>
+                     <div class="statistics__item-inner">
+                        <div class="statistics__item-count count" data-target="<?php echo $item['count']; ?>"><span>0</span>
+                           <p>+</p>
+                        </div>
+                        <p class="statistics__item-text"><?php echo $item['text']; ?></p>
                      </div>
-                     <p class="statistics__item-text"><?php echo $item['text']; ?></p>
                   </div>
                <?php endforeach; ?>
             </div>

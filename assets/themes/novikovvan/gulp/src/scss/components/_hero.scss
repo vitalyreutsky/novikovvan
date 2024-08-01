@@ -64,7 +64,7 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-top: auto;
     width: 100%;
 
@@ -74,20 +74,68 @@
   &__statistics {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
 
     .statistics {
-      &__item {
+      &__item-inner {
+        position: relative;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 5px;
 
-        min-width: 130px;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: transparent;
+          transition: all 0.2s ease-in-out;
+        }
 
-        &:not(:last-child) {
-          padding-right: 30px;
-          border-right: 1px solid $white;
+        &::before {
+          right: 0;
+          top: -5px;
+          border-right: 2px solid $red;
+          border-top: 2px solid $red;
+        }
+        &::after {
+          left: 0;
+          bottom: -5px;
+          border-left: 2px solid $red;
+          border-bottom: 2px solid $red;
+        }
+      }
+
+      &__item {
+        position: relative;
+        padding: 10px;
+        min-width: 150px;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: transparent;
+          transition: all 0.2s ease-in-out;
+        }
+
+        &::before {
+          left: 5px;
+          top: 5px;
+          border-top: 2px solid $red;
+          border-left: 2px solid $red;
+        }
+        &::after {
+          right: 5px;
+          bottom: 5px;
+          border-right: 2px solid $red;
+          border-bottom: 2px solid $red;
         }
       }
 

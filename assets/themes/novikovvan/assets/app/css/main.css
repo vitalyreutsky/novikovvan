@@ -552,9 +552,9 @@ p {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   margin-top: auto;
   width: 100%;
   padding-bottom: 50px;
@@ -566,9 +566,10 @@ p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 }
-.hero__statistics .statistics__item {
+.hero__statistics .statistics__item-inner {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -582,11 +583,54 @@ p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-width: 130px;
+  padding: 5px;
 }
-.hero__statistics .statistics__item:not(:last-child) {
-  padding-right: 30px;
-  border-right: 1px solid #fff;
+.hero__statistics .statistics__item-inner::before, .hero__statistics .statistics__item-inner::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.hero__statistics .statistics__item-inner::before {
+  right: 0;
+  top: -5px;
+  border-right: 2px solid #ff0000;
+  border-top: 2px solid #ff0000;
+}
+.hero__statistics .statistics__item-inner::after {
+  left: 0;
+  bottom: -5px;
+  border-left: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+}
+.hero__statistics .statistics__item {
+  position: relative;
+  padding: 10px;
+  min-width: 150px;
+}
+.hero__statistics .statistics__item::before, .hero__statistics .statistics__item::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.hero__statistics .statistics__item::before {
+  left: 5px;
+  top: 5px;
+  border-top: 2px solid #ff0000;
+  border-left: 2px solid #ff0000;
+}
+.hero__statistics .statistics__item::after {
+  right: 5px;
+  bottom: 5px;
+  border-right: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
 }
 .hero__statistics .statistics__item-count {
   display: -webkit-box;
