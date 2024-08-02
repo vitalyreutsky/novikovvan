@@ -29,11 +29,22 @@ $reviews = get_field('reviews');
                <?php foreach ($reviews as $review) : ?>
                   <div class="reviews__tabs-panel tabs__panel main-slider__items swiper">
                      <div class="reviews__tabs-panel-wrapper tabs__panel-wrapper swiper-wrapper">
-                        <?php foreach ($review['photo'] as $photo) : ?>
-                           <div class="reviews__tabs-panel-item tabs__panel-image swiper-slide">
-                              <?php echo wp_get_attachment_image($photo['image']['ID'], 'full'); ?>
-                           </div>
-                        <?php endforeach; ?>
+                        <?php if ($review['photo']) : ?>
+                           <?php foreach ($review['photo'] as $photo) : ?>
+                              <div class="reviews__tabs-panel-item tabs__panel-image swiper-slide">
+                                 <?php echo wp_get_attachment_image($photo['image']['ID'], 'full'); ?>
+                              </div>
+                           <?php endforeach; ?>
+                        <?php endif; ?>
+
+                        <?php if ($review['review']) : ?>
+                           <?php foreach ($review['review'] as $text) : ?>
+                              <div class="reviews__tabs-panel-item reviews__tabs-panel-item--text tabs__panel-text swiper-slide">
+                                 <h3><?php echo $text['name']; ?></h3>
+                                 <p><?php echo $text['text']; ?></p>
+                              </div>
+                           <?php endforeach; ?>
+                        <?php endif; ?>
                      </div>
 
                      <div class="reviews__tabs-btns"></div>

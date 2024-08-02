@@ -142,7 +142,7 @@
                     ]
                 },
                 {
-                    "key": "field_66ac878774044",
+                    "key": "field_66acc87efa201",
                     "label": "Text Reviews",
                     "name": "text_reviews",
                     "type": "group",
@@ -157,7 +157,7 @@
                     "layout": "block",
                     "sub_fields": [
                         {
-                            "key": "field_66ac878774045",
+                            "key": "field_66acc87efa202",
                             "label": "Title",
                             "name": "title",
                             "type": "text",
@@ -176,9 +176,9 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_66ac878774046",
-                            "label": "Photo",
-                            "name": "photo",
+                            "key": "field_66acc87efa203",
+                            "label": "Review",
+                            "name": "review",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -195,28 +195,42 @@
                             "button_label": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_66ac878774047",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "type": "image",
+                                    "key": "field_66accc21055e0",
+                                    "label": "Name",
+                                    "name": "name",
+                                    "type": "text",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "30",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_66acc87efa204",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 5,
+                                    "new_lines": ""
                                 }
                             ]
                         }
@@ -243,5 +257,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722586721
+    "modified": 1722600539
 }
