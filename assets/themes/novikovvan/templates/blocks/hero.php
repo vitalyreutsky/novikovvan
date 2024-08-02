@@ -17,7 +17,7 @@ $statistics = get_field('statistics');
                <p class="hero__desc"><?php echo $desc; ?></p>
             <?php endif; ?>
 
-            <a href="#" class="hero__btn btn">
+            <a href="#about" class="hero__btn btn navigation__item">
                <span></span>
                Подробнее
             </a>

@@ -14,31 +14,31 @@ $site_logo = get_field('site_logo', 'options');
       <nav class="header__nav nav" title="nav-menu">
         <ul class="list-reset nav__list">
           <li class="nav__item">
-            <a href="#" class="nav__link">
+            <a href="#about" class="nav__link navigation__item">
               <span>Обо мне</span>
             </a>
           </li>
 
           <li class="nav__item">
-            <a href="#" class="nav__link">
+            <a href="#reviews" class="nav__link navigation__item">
               <span>Отзывы</span>
             </a>
           </li>
 
           <li class="nav__item">
-            <a href="#" class="nav__link">
+            <a href="#programs" class="nav__link navigation__item">
               <span>Программы тренировок</span>
             </a>
           </li>
 
           <li class="nav__item">
-            <a href="#" class="nav__link">
+            <a href="#contacts" class="nav__link navigation__item">
               <span>Контакты</span>
             </a>
           </li>
 
           <li class="nav__item">
-            <a href="#" class="nav__link">
+            <a href="#faq" class="nav__link navigation__item">
               <span>Вопросы</span>
             </a>
           </li>

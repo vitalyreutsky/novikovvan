@@ -4,7 +4,7 @@ $bg_image = get_field('bg_image');
 $reviews = get_field('reviews');
 ?>
 
-<section class="reviews bg-block" style="background-image: url('<?php echo wp_get_attachment_url($bg_image); ?>');">
+<section class="reviews bg-block" id="reviews" style="background-image: url('<?php echo wp_get_attachment_url($bg_image); ?>');">
    <div class="container">
       <div class="reviews__wrapper">
          <?php if ($title) : ?>

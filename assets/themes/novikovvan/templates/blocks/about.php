@@ -5,7 +5,7 @@ $about_achievements = get_field('about_achievements');
 $desc = get_field('description');
 ?>
 
-<section class="about bg-block">
+<section class="about bg-block" id="about">
    <div class="container about__container">
       <div class="about__inner">
          <?php if ($title) : ?>
