@@ -24,13 +24,6 @@ html {
   box-sizing: border-box;
 }
 
-.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-}
-
 .page {
   position: inherit !important;
   height: 100%;

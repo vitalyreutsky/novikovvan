@@ -59,13 +59,6 @@ html {
   box-sizing: border-box;
 }
 
-.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-}
-
 .page {
   position: inherit !important;
   height: 100%;
@@ -577,10 +570,6 @@ p + *:not(p, ul) {
   max-width: 700px;
   text-align: center;
   z-index: 1;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  -webkit-animation: fadeInBottom 1s ease;
-  animation: fadeInBottom 1s ease;
 }
 .hero__title {
   margin-bottom: 50px;
@@ -595,9 +584,9 @@ p + *:not(p, ul) {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: auto;
   width: 100%;
   padding-bottom: 20px;

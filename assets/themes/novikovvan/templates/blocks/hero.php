@@ -8,7 +8,7 @@ $statistics = get_field('statistics');
 <div class="hero count-block bg-block" style="background-image: url('<?php echo wp_get_attachment_url($image); ?>');">
    <div class="container hero__container">
       <div class="hero__wrapper">
-         <div class="hero__info">
+         <div class="hero__info" data-aos="zoom-in-up">
             <?php if ($title) : ?>
                <h1 class="hero__title main-title"><?php echo $title; ?></h1>
             <?php endif; ?>
@@ -23,7 +23,7 @@ $statistics = get_field('statistics');
             </a>
          </div>
 
-         <div class="hero__bottom">
+         <div class="hero__bottom" data-aos="fade-up">
             <div class="hero__statistics statistics__items">
                <?php foreach ($statistics as $key => $item) :  ?>
                   <div class="statistics__item">

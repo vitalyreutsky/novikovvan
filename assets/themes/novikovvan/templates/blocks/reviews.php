@@ -8,10 +8,10 @@ $reviews = get_field('reviews');
    <div class="container">
       <div class="reviews__wrapper">
          <?php if ($title) : ?>
-            <h2 class="reviews__title main-title"><?php echo $title; ?></h2>
+            <h2 class="reviews__title main-title" data-aos="fade-up"><?php echo $title; ?></h2>
          <?php endif; ?>
 
-         <div class="reviews__tabs tabs" data-tabs="reviews">
+         <div class="reviews__tabs tabs" data-tabs="reviews" data-aos="zoom-in-up">
             <ul class="reviews__tabs-nav list-reset tabs__nav">
                <?php foreach ($reviews as $review_btn) : ?>
                   <li class="reviews__tabs-nav-item tabs__nav-item">

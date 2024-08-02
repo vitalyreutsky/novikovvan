@@ -9,11 +9,11 @@ $desc = get_field('description');
    <div class="container about__container">
       <div class="about__inner">
          <?php if ($title) : ?>
-            <h1 class="about__title main-title"><?php echo $title; ?></h1>
+            <h1 class="about__title main-title" data-aos="fade-right"><?php echo $title; ?></h1>
          <?php endif; ?>
 
 
-         <div class="achievements__slider" data-sliders-count="<?php echo count($about_achievements); ?>">
+         <div class="achievements__slider" data-aos="fade-left" data-sliders-count="<?php echo count($about_achievements); ?>">
             <div class="achievements__items">
                <?php foreach ($about_achievements as $item) :
                ?>
@@ -38,7 +38,7 @@ $desc = get_field('description');
       </div>
 
       <?php if ($desc) : ?>
-         <div class="about__description">
+         <div class="about__description" data-aos="fade-up">
             <?php echo $desc; ?>
          </div>
       <?php endif; ?>

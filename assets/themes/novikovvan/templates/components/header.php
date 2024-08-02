@@ -4,7 +4,7 @@ $site_logo = get_field('site_logo', 'options');
 
 <header class="header">
   <div class="container">
-    <div class="header__wrapper">
+    <div class="header__wrapper" data-aos="fade-down">
       <?php if ($site_logo) : ?>
         <a href="/" class="header__logo">
           <?php echo App\Base\SvgSupport::get_inline_svg_by_id($site_logo); ?>

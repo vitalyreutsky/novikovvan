@@ -31,9 +31,6 @@
 //   placement: 'right'
 // });
 
-// import AOS from 'aos';
-// AOS.init();
-
 // import Rellax from 'rellax';
 // const rellax = new Rellax('.rellax');
 
