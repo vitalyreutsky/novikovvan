@@ -32,9 +32,6 @@
 
     text-align: center;
     z-index: 1;
-
-    // transition: all 0.2s ease-in-out;
-    // animation: fadeInBottom 1s ease;
   }
 
   &__title {
@@ -143,12 +140,5 @@
         font-size: 16px;
       }
     }
-  }
-}
-
-@keyframes fadeInBottom {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 20%, 0);
   }
 }

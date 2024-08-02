@@ -684,21 +684,6 @@ p + *:not(p, ul) {
   font-size: 16px;
 }
 
-@-webkit-keyframes fadeInBottom {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 20%, 0);
-    transform: translate3d(0, 20%, 0);
-  }
-}
-
-@keyframes fadeInBottom {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 20%, 0);
-    transform: translate3d(0, 20%, 0);
-  }
-}
 .social__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -999,7 +984,7 @@ p + *:not(p, ul) {
 }
 .about .ms--numbers {
   position: absolute;
-  left: calc(50% - 380px);
+  left: calc(50% - 530px);
   top: -100px;
   pointer-events: none;
 }
@@ -1063,7 +1048,7 @@ p + *:not(p, ul) {
 }
 .about .ms--titles {
   position: absolute;
-  left: calc(50% - 420px);
+  left: calc(50% - 550px);
   z-index: 1;
   pointer-events: none;
 }
