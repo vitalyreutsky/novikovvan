@@ -22,9 +22,6 @@
 // import GraphModal from 'graph-modal';
 // const modal = new GraphModal();
 
-// import GraphTabs from 'graph-tabs';
-// const tabs = new GraphTabs('tab');
-
 // import { getHeaderHeight } from './functions/header-height';
 
 // import 'simplebar';
@@ -32,13 +29,6 @@
 // import { createPopper, right} from '@popperjs/core';
 // createPopper(el, tooltip, {
 //   placement: 'right'
-// });
-
-// import Swiper from 'swiper';
-// import { Navigation, Pagination } from 'swiper/modules';
-// Swiper.use([Navigation, Pagination]);
-// const swiper = new Swiper(el, {
-//   slidesPerView: 'auto',
 // });
 
 // import AOS from 'aos';
