@@ -11,6 +11,7 @@ final class Init
 		General\Hero::class,
 		General\About::class,
 		General\Reviews::class,
+		General\Look::class,
 	);
 
 	public function __construct()

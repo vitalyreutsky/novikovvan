@@ -984,6 +984,27 @@ mainSliders.forEach(slider => {
   });
 });
 
+// look
+// !mission-swiper
+const lookProgram = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".look__program-slider", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  speed: 1000,
+  loop: true,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true
+  },
+  autoplay: {
+    delay: 2000
+  },
+  pagination: {
+    el: ".look__program-btns",
+    clickable: true,
+    dynamicBullets: false
+  }
+});
+
 /***/ }),
 
 /***/ "./src/js/components/tabs.js":
