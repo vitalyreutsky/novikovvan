@@ -125,6 +125,7 @@
       background-color: #6a3836;
       border-radius: 0;
       opacity: 1;
+      transition: all 0.2s ease-in-out;
 
       &.swiper-pagination-bullet-active {
         background-color: $red;
