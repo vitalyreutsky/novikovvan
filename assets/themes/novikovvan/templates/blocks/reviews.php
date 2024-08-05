@@ -12,7 +12,7 @@ $reviews = get_field('reviews');
          <?php endif; ?>
 
          <div class="reviews__tabs tabs" data-tabs="reviews" data-aos="zoom-in-up">
-            <ul class="reviews__tabs-nav list-reset tabs__nav">
+            <ul class="reviews__tabs-nav list-reset tabs__nav border-anim">
                <?php foreach ($reviews as $review_btn) : ?>
                   <li class="reviews__tabs-nav-item tabs__nav-item">
                      <button class="btn-reset reviews__tabs-nav-btn tabs__nav-btn" type="button">
