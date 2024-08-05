@@ -93,6 +93,33 @@
           opacity: 0;
         }
 
+        &.active {
+          &::before {
+            opacity: 1;
+            right: 5px;
+            top: 5px;
+          }
+          &::after {
+            opacity: 1;
+            left: 5px;
+            bottom: 5px;
+          }
+          span {
+            color: $red;
+
+            &::before {
+              opacity: 1;
+              left: 5px;
+              top: 5px;
+            }
+            &::after {
+              opacity: 1;
+              right: 5px;
+              bottom: 5px;
+            }
+          }
+        }
+
         @include for-desktop {
           &:hover {
             &::before {

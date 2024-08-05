@@ -688,6 +688,29 @@ p + *:not(div, p, ul, span) {
   transition: all 0.2s ease-in-out;
   opacity: 0;
 }
+.header__nav .nav__link.active::before {
+  opacity: 1;
+  right: 5px;
+  top: 5px;
+}
+.header__nav .nav__link.active::after {
+  opacity: 1;
+  left: 5px;
+  bottom: 5px;
+}
+.header__nav .nav__link.active span {
+  color: #ff0000;
+}
+.header__nav .nav__link.active span::before {
+  opacity: 1;
+  left: 5px;
+  top: 5px;
+}
+.header__nav .nav__link.active span::after {
+  opacity: 1;
+  right: 5px;
+  bottom: 5px;
+}
 @media (min-width: 1025px) {
   .header__nav .nav__link:hover::before {
     opacity: 1;
