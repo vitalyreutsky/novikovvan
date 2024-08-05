@@ -899,6 +899,7 @@ p + *:not(div, p, ul, span) {
   -ms-flex-align: center;
   align-items: center;
   font-size: 50px;
+  line-height: normal;
 }
 .hero__statistics .statistics__item-count p {
   font: inherit;

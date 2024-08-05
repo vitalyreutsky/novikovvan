@@ -7,7 +7,7 @@ $bg_image = get_field('bg_image');
 $types = get_field('types');
 ?>
 
-<section class="look" id="programs" style="background-image: url('<?php echo wp_get_attachment_url($bg_image); ?>');">
+<section class="look" style="background-image: url('<?php echo wp_get_attachment_url($bg_image); ?>');">
    <div class="container">
       <div class="look__wrapper">
          <?php if ($title) : ?>

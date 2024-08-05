@@ -2,7 +2,7 @@
 $title = get_field('title');
 $programs_list = get_field('programs_list');
 ?>
-<section class="program-list bg-block">
+<section class="program-list bg-block" id="programs">
    <div class="container">
       <div class="program-list__wrapper">
          <?php if ($title) : ?>
