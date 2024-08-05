@@ -65,6 +65,7 @@ html {
   font-family: "BebasNeue", sans-serif;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
+  line-height: 150%;
 }
 
 .page__body {
@@ -184,8 +185,8 @@ section {
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
   cursor: pointer;
 }
 .btn:before, .btn:after,
