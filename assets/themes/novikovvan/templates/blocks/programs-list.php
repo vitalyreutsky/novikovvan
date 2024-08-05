@@ -6,7 +6,7 @@ $programs_list = get_field('programs_list');
    <div class="container">
       <div class="program-list__wrapper">
          <?php if ($title) : ?>
-            <h1 class="program-list__title main-title" data-aos="zoom-in-up"><?php echo $title; ?></h1>
+            <h2 class="program-list__title main-title" data-aos="zoom-in-up"><?php echo $title; ?></h2>
          <?php endif; ?>
 
          <div class="program-list__cards swiper" data-aos="zoom-in-up">

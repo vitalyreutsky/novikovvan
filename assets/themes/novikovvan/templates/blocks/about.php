@@ -9,7 +9,7 @@ $desc = get_field('description');
    <div class="container about__container">
       <div class="about__inner">
          <?php if ($title) : ?>
-            <h1 class="about__title main-title" data-aos="fade-right"><?php echo $title; ?></h1>
+            <h2 class="about__title main-title" data-aos="fade-right"><?php echo $title; ?></h2>
          <?php endif; ?>
 
 
