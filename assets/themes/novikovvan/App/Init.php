@@ -26,7 +26,7 @@ final class init
 			Base\Deregister::class,
 			Base\ChangeEditor::class,
 			Acf\Blocks\Init::class,
-			CustomPostType\RegisterCustomPostType::class,
+			// CustomPostType\RegisterCustomPostType::class,
 			Helpers\Init::class,
 			Posts\Init::class,
 			SEO\Init::class,

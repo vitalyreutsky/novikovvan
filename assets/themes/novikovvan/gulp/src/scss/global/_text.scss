@@ -73,6 +73,7 @@ p {
   line-height: 120%;
   text-transform: capitalize;
   text-shadow: 5px 5px 5px black;
+  text-align: center;
 
   span {
     color: $red;
@@ -104,7 +105,7 @@ p {
     margin-bottom: 15px;
   }
 
-  + *:not(p, ul) {
+  + *:not(div, p, ul, span) {
     margin-top: 40px;
 
     @include tablet {

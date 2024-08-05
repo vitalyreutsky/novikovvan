@@ -1,7 +1,7 @@
 import Swiper from "swiper";
-import { Pagination } from "swiper/modules";
+import { Keyboard, Pagination } from "swiper/modules";
 
-Swiper.use(Pagination);
+Swiper.use(Pagination, Keyboard);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -12,6 +12,7 @@ mainSliders.forEach((slider) => {
     const mainSlider = new Swiper(slider, {
       slidesPerView: "auto",
       spaceBetween: 20,
+      slidesPerGroup: 1,
       speed: 700,
       loop: true,
 
@@ -30,10 +31,10 @@ mainSliders.forEach((slider) => {
 });
 
 // look
-// !mission-swiper
 const lookProgram = new Swiper(".look__program-slider", {
   slidesPerView: 1,
   spaceBetween: 30,
+  slidesPerGroup: 1,
   speed: 1000,
   loop: true,
   keyboard: {
@@ -45,6 +46,24 @@ const lookProgram = new Swiper(".look__program-slider", {
   },
   pagination: {
     el: ".look__program-btns",
+    clickable: true,
+    dynamicBullets: false,
+  },
+});
+
+// programs
+const programs = new Swiper(".program-list__cards", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  slidesPerGroup: 1,
+  speed: 1000,
+  loop: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+  pagination: {
+    el: ".program-list__cards-btns",
     clickable: true,
     dynamicBullets: false,
   },

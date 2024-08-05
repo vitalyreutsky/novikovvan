@@ -959,7 +959,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Keyboard);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -969,6 +969,7 @@ mainSliders.forEach(slider => {
     const mainSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider, {
       slidesPerView: "auto",
       spaceBetween: 20,
+      slidesPerGroup: 1,
       speed: 700,
       loop: true,
       keyboard: {
@@ -985,10 +986,10 @@ mainSliders.forEach(slider => {
 });
 
 // look
-// !mission-swiper
 const lookProgram = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".look__program-slider", {
   slidesPerView: 1,
   spaceBetween: 30,
+  slidesPerGroup: 1,
   speed: 1000,
   loop: true,
   keyboard: {
@@ -1000,6 +1001,24 @@ const lookProgram = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".look__p
   },
   pagination: {
     el: ".look__program-btns",
+    clickable: true,
+    dynamicBullets: false
+  }
+});
+
+// programs
+const programs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".program-list__cards", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  slidesPerGroup: 1,
+  speed: 1000,
+  loop: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true
+  },
+  pagination: {
+    el: ".program-list__cards-btns",
     clickable: true,
     dynamicBullets: false
   }

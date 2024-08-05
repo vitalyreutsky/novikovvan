@@ -1,11 +1,14 @@
 .btn {
   position: relative;
+  display: block;
   width: fit-content;
   min-width: 200px;
   font-size: 30px;
   padding: 10px;
+  text-align: center;
   text-transform: uppercase;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 
   &:before,
   &:after,

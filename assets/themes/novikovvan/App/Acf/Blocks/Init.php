@@ -12,6 +12,7 @@ final class Init
 		General\About::class,
 		General\Reviews::class,
 		General\Look::class,
+		General\ProgramsList::class,
 	);
 
 	public function __construct()
