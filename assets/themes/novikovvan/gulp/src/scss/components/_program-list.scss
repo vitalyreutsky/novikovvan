@@ -9,29 +9,7 @@
     z-index: 1;
   }
 
-  &__cards {
-    width: 100%;
+  &__tabs {
     max-width: 95%;
-    margin: 0 auto;
-  }
-
-  &__cards-btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 50px;
-
-    span {
-      width: 36px;
-      height: 3px;
-      background-color: #6a3836;
-      border-radius: 0;
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
-
-      &.swiper-pagination-bullet-active {
-        background-color: $red;
-      }
-    }
   }
 }

@@ -1,7 +1,7 @@
 import Swiper from "swiper";
-import { Keyboard, Pagination } from "swiper/modules";
+import { Autoplay, Keyboard, Pagination } from "swiper/modules";
 
-Swiper.use(Pagination, Keyboard);
+Swiper.use(Pagination, Keyboard, Autoplay);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -15,6 +15,10 @@ mainSliders.forEach((slider) => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
+
+      autoplay: {
+        delay: 2000,
+      },
 
       keyboard: {
         enabled: true,

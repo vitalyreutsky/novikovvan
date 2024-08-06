@@ -11,11 +11,11 @@ $reviews = get_field('reviews');
             <h2 class="reviews__title main-title" data-aos="fade-up"><?php echo $title; ?></h2>
          <?php endif; ?>
 
-         <div class="reviews__tabs tabs" data-tabs="reviews" data-aos="zoom-in-up">
-            <ul class="reviews__tabs-nav list-reset tabs__nav border-anim">
+         <div class="reviews__tabs main__tabs tabs" data-tabs="reviews" data-aos="zoom-in-up">
+            <ul class="reviews__tabs-nav main__tabs-nav list-reset tabs__nav border-anim">
                <?php foreach ($reviews as $review_btn) : ?>
-                  <li class="reviews__tabs-nav-item tabs__nav-item">
-                     <button class="btn-reset reviews__tabs-nav-btn tabs__nav-btn" type="button">
+                  <li class="reviews__tabs-nav-item main__tabs-nav-item tabs__nav-item">
+                     <button class="btn-reset reviews__tabs-nav-btn main__tabs-nav-btn tabs__nav-btn" type="button">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -25,13 +25,13 @@ $reviews = get_field('reviews');
                   </li>
                <?php endforeach; ?>
             </ul>
-            <div class="reviews__tabs tabs__content main-slider">
+            <div class="reviews__tabs main__tabs tabs__content main-slider">
                <?php foreach ($reviews as $review) : ?>
-                  <div class="reviews__tabs-panel tabs__panel main-slider__items swiper">
-                     <div class="reviews__tabs-panel-wrapper tabs__panel-wrapper swiper-wrapper">
+                  <div class="reviews__tabs-panel main__tabs-panel tabs__panel main-slider__items swiper">
+                     <div class="reviews__tabs-panel-wrapper main__tabs-panel-wrapper tabs__panel-wrapper swiper-wrapper">
                         <?php if ($review['photo']) : ?>
                            <?php foreach ($review['photo'] as $photo) : ?>
-                              <div class="reviews__tabs-panel-item tabs__panel-image swiper-slide">
+                              <div class="reviews__tabs-panel-item main__tabs-panel-item tabs__panel-image swiper-slide">
                                  <?php echo wp_get_attachment_image($photo['image']['ID'], 'full'); ?>
                               </div>
                            <?php endforeach; ?>
@@ -39,7 +39,7 @@ $reviews = get_field('reviews');
 
                         <?php if ($review['review']) : ?>
                            <?php foreach ($review['review'] as $text) : ?>
-                              <div class="reviews__tabs-panel-item reviews__tabs-panel-item--text tabs__panel-text swiper-slide">
+                              <div class="reviews__tabs-panel-item main__tabs-panel-item main__tabs-panel-item--text tabs__panel-text swiper-slide">
                                  <h3><?php echo $text['name']; ?></h3>
                                  <p><?php echo $text['text']; ?></p>
                               </div>
@@ -47,7 +47,7 @@ $reviews = get_field('reviews');
                         <?php endif; ?>
                      </div>
 
-                     <div class="reviews__tabs-btns"></div>
+                     <div class="reviews__tabs-btns main__tabs-btns"></div>
                   </div>
                <?php endforeach; ?>
             </div>

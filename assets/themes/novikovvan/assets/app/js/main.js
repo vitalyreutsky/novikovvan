@@ -1075,7 +1075,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Keyboard);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Keyboard, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -1088,6 +1088,9 @@ mainSliders.forEach(slider => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
+      autoplay: {
+        delay: 2000
+      },
       keyboard: {
         enabled: true,
         onlyInViewport: true
@@ -1153,6 +1156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graph_tabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graph-tabs */ "./node_modules/graph-tabs/src/graph-tabs.js");
 
 const tabs = new graph_tabs__WEBPACK_IMPORTED_MODULE_0__["default"]("reviews");
+const tabsPrograms = new graph_tabs__WEBPACK_IMPORTED_MODULE_0__["default"]("programs");
 
 /***/ }),
 

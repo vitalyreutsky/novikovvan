@@ -19,6 +19,7 @@ final class init
 		// Array of classes needed to init
 		return array(
 			Options\Options::class,
+			Admin\Init::class,
 			Base\Bootstrap::class,
 			Base\DisableXmlRPC::class,
 			Base\Enqueue::class,
@@ -30,6 +31,7 @@ final class init
 			Helpers\Init::class,
 			Posts\Init::class,
 			SEO\Init::class,
+			Woocomerce\Init::class
 		);
 	}
 
