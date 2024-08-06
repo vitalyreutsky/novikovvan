@@ -1,3 +1,4 @@
+import "./components/header.js";
 import "./components/navigation.js";
 import "./components/aos.js";
 import "./components/count.js";

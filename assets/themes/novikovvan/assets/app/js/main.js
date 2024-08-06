@@ -736,13 +736,15 @@ class GraphTabs {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/navigation.js */ "./src/js/components/navigation.js");
-/* harmony import */ var _components_aos_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/aos.js */ "./src/js/components/aos.js");
-/* harmony import */ var _components_count_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/count.js */ "./src/js/components/count.js");
-/* harmony import */ var _components_achievements_slider_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/achievements-slider.js */ "./src/js/components/achievements-slider.js");
-/* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
-/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
-/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/header.js */ "./src/js/components/header.js");
+/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/navigation.js */ "./src/js/components/navigation.js");
+/* harmony import */ var _components_aos_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/aos.js */ "./src/js/components/aos.js");
+/* harmony import */ var _components_count_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/count.js */ "./src/js/components/count.js");
+/* harmony import */ var _components_achievements_slider_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/achievements-slider.js */ "./src/js/components/achievements-slider.js");
+/* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
+/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
+/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+
 
 
 
@@ -950,6 +952,18 @@ faqParent.forEach(faqParent => {
     }
   });
 });
+
+/***/ }),
+
+/***/ "./src/js/components/header.js":
+/*!*************************************!*\
+  !*** ./src/js/components/header.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
 
 /***/ }),
 

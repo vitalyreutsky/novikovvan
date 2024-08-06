@@ -39,7 +39,7 @@ $variations_id = wp_list_pluck($variations, 'variation_id');
         <?php endforeach; ?>
       </div>
 
-      <a href="<?php echo $link_telegram; ?>" class="program-card__btn btn">
+      <a href="<?php echo $link_telegram; ?>" target="_blank" class="program-card__btn btn">
         <span></span>
         Купить
       </a>
