@@ -36,10 +36,6 @@ $statistics = get_field('statistics');
                   </div>
                <?php endforeach; ?>
             </div>
-
-            <div class="hero__social">
-               <?php get_template_part('templates/components/social-media'); ?>
-            </div>
          </div>
       </div>
    </div>

@@ -32,18 +32,16 @@ $site_logo = get_field('site_logo', 'options');
           </li>
 
           <li class="nav__item">
-            <a href="#contacts" class="nav__link navigation__item">
-              <span>Контакты</span>
-            </a>
-          </li>
-
-          <li class="nav__item">
             <a href="#faq" class="nav__link navigation__item">
               <span>Вопросы</span>
             </a>
           </li>
         </ul>
       </nav>
+
+      <div class="header__social">
+        <?php get_template_part('templates/components/social-media'); ?>
+      </div>
     </div>
   </div>
 </header>
