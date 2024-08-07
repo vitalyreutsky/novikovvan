@@ -882,7 +882,8 @@ __webpack_require__.r(__webpack_exports__);
 
 aos__WEBPACK_IMPORTED_MODULE_0__.init({
   once: true,
-  duration: 700
+  duration: 700,
+  disable: "tablet"
 });
 
 /***/ }),

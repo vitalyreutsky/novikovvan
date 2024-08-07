@@ -32,10 +32,18 @@
 
     text-align: center;
     z-index: 1;
+
+    @include tablet {
+      padding-top: 0px;
+    }
   }
 
   &__title {
     margin-bottom: 50px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
   }
 
   &__desc {
@@ -57,6 +65,10 @@
     align-items: center;
     gap: 50px;
 
+    @include tablet {
+      gap: 10px;
+    }
+
     .statistics {
       &__item-inner {
         position: relative;
@@ -75,6 +87,11 @@
           height: 10px;
           background: transparent;
           transition: all 0.2s ease-in-out;
+
+          @include tablet {
+            width: 5px;
+            height: 5px;
+          }
         }
 
         &::before {
@@ -82,12 +99,20 @@
           top: -5px;
           border-right: 2px solid $red;
           border-top: 2px solid $red;
+
+          @include tablet {
+            top: 0;
+          }
         }
         &::after {
           left: 0;
           bottom: -5px;
           border-left: 2px solid $red;
           border-bottom: 2px solid $red;
+
+          @include tablet {
+            bottom: 0;
+          }
         }
       }
 
@@ -95,6 +120,11 @@
         position: relative;
         padding: 10px;
         min-width: 150px;
+
+        @include tablet {
+          min-width: 100px;
+          padding: 5px;
+        }
 
         &::before,
         &::after {
@@ -104,6 +134,11 @@
           height: 10px;
           background: transparent;
           transition: all 0.2s ease-in-out;
+
+          @include tablet {
+            width: 5px;
+            height: 5px;
+          }
         }
 
         &::before {
@@ -127,6 +162,10 @@
         font-size: 50px;
         line-height: normal;
 
+        @include tablet {
+          font-size: 30px;
+        }
+
         p {
           font: inherit;
         }
@@ -139,6 +178,10 @@
 
       &__item-text {
         font-size: 16px;
+
+        @include tablet {
+          font-size: 12px;
+        }
       }
     }
   }
