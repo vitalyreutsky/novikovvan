@@ -20,5 +20,9 @@
 
   &__tabs-panel-item {
     max-height: 500px;
+
+    @include tablet {
+      max-height: 300px;
+    }
   }
 }
