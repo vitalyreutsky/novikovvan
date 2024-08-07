@@ -1,7 +1,7 @@
 import Swiper from "swiper";
-import { Autoplay, Keyboard, Pagination } from "swiper/modules";
+import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 
-Swiper.use(Pagination, Keyboard, Autoplay);
+Swiper.use([Autoplay, Pagination, Navigation, Keyboard]);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -15,9 +15,10 @@ mainSliders.forEach((slider) => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
+      centeredSlides: true,
 
       autoplay: {
-        delay: 2000,
+        delay: 3000,
       },
 
       keyboard: {
@@ -46,7 +47,7 @@ const lookProgram = new Swiper(".look__program-slider", {
     onlyInViewport: true,
   },
   autoplay: {
-    delay: 2000,
+    delay: 3000,
   },
   pagination: {
     el: ".look__program-btns",
@@ -58,7 +59,7 @@ const lookProgram = new Swiper(".look__program-slider", {
 // programs
 const programs = new Swiper(".program-list__cards", {
   slidesPerView: 3,
-  spaceBetween: 30,
+  spaceBetween: 20,
   slidesPerGroup: 1,
   speed: 1000,
   loop: false,

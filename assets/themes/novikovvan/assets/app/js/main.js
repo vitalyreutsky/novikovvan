@@ -1089,7 +1089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use(swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Keyboard, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Keyboard]);
 
 // reviews
 const mainSliders = document.querySelectorAll(".main-slider");
@@ -1102,8 +1102,9 @@ mainSliders.forEach(slider => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
+      centeredSlides: true,
       autoplay: {
-        delay: 2000
+        delay: 3000
       },
       keyboard: {
         enabled: true,
@@ -1130,7 +1131,7 @@ const lookProgram = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".look__p
     onlyInViewport: true
   },
   autoplay: {
-    delay: 2000
+    delay: 3000
   },
   pagination: {
     el: ".look__program-btns",
@@ -1142,7 +1143,7 @@ const lookProgram = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".look__p
 // programs
 const programs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".program-list__cards", {
   slidesPerView: 3,
-  spaceBetween: 30,
+  spaceBetween: 20,
   slidesPerGroup: 1,
   speed: 1000,
   loop: false,
