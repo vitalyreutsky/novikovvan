@@ -7,6 +7,10 @@
 
     mask: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
     z-index: 1;
+
+    @include tablet {
+      gap: 20px;
+    }
   }
 
   &__tabs {

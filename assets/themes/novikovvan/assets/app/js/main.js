@@ -1339,6 +1339,18 @@ const programs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".program-li
     el: ".program-list__cards-btns",
     clickable: true,
     dynamicBullets: false
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
   }
 });
 

@@ -72,4 +72,19 @@ const programs = new Swiper(".program-list__cards", {
     clickable: true,
     dynamicBullets: false,
   },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+
+    768: {
+      slidesPerView: 2,
+    },
+
+    1024: {
+      slidesPerView: 3,
+    },
+  },
 });
