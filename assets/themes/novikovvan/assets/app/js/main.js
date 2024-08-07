@@ -736,14 +736,15 @@ class GraphTabs {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/header.js */ "./src/js/components/header.js");
-/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/navigation.js */ "./src/js/components/navigation.js");
-/* harmony import */ var _components_aos_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/aos.js */ "./src/js/components/aos.js");
-/* harmony import */ var _components_count_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/count.js */ "./src/js/components/count.js");
-/* harmony import */ var _components_achievements_slider_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/achievements-slider.js */ "./src/js/components/achievements-slider.js");
-/* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
-/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
-/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _components_dynamic_adapt_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/dynamic-adapt.js */ "./src/js/components/dynamic-adapt.js");
+/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/header.js */ "./src/js/components/header.js");
+/* harmony import */ var _components_navigation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/navigation.js */ "./src/js/components/navigation.js");
+/* harmony import */ var _components_aos_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/aos.js */ "./src/js/components/aos.js");
+/* harmony import */ var _components_count_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/count.js */ "./src/js/components/count.js");
+/* harmony import */ var _components_achievements_slider_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/achievements-slider.js */ "./src/js/components/achievements-slider.js");
+/* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/tabs.js */ "./src/js/components/tabs.js");
+/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
+/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
 
 
 
@@ -752,6 +753,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./src/js/_vars.js":
+/*!*************************!*\
+  !*** ./src/js/_vars.js ***!
+  \*************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  windowEl: window,
+  documentEl: document,
+  htmlEl: document.documentElement,
+  bodyEl: document.body
+});
 
 /***/ }),
 
@@ -921,6 +943,160 @@ if (countBlock) {
 
 /***/ }),
 
+/***/ "./src/js/components/dynamic-adapt.js":
+/*!********************************************!*\
+  !*** ./src/js/components/dynamic-adapt.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+
+function DynamicAdapt(type) {
+  this.type = type;
+}
+DynamicAdapt.prototype.init = function () {
+  const _this = this;
+  // массив объектов
+  this.оbjects = [];
+  this.daClassname = "_dynamic_adapt_";
+  // массив DOM-элементов
+  this.nodes = document.querySelectorAll("[data-da]");
+
+  // наполнение оbjects объектами
+  for (let i = 0; i < this.nodes.length; i++) {
+    const node = this.nodes[i];
+    const data = node.dataset.da.trim();
+    const dataArray = data.split(",");
+    const оbject = {};
+    оbject.element = node;
+    оbject.parent = node.parentNode;
+    оbject.destination = document.querySelector(dataArray[0].trim());
+    оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+    оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+    оbject.index = this.indexInParent(оbject.parent, оbject.element);
+    this.оbjects.push(оbject);
+  }
+  this.arraySort(this.оbjects);
+
+  // массив уникальных медиа-запросов
+  this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+    return "(" + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+  }, this);
+  this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+    return Array.prototype.indexOf.call(self, item) === index;
+  });
+
+  // навешивание слушателя на медиа-запрос
+  // и вызов обработчика при первом запуске
+  for (let i = 0; i < this.mediaQueries.length; i++) {
+    const media = this.mediaQueries[i];
+    const mediaSplit = String.prototype.split.call(media, ",");
+    const matchMedia = window.matchMedia(mediaSplit[0]);
+    const mediaBreakpoint = mediaSplit[1];
+
+    // массив объектов с подходящим брейкпоинтом
+    const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+      return item.breakpoint === mediaBreakpoint;
+    });
+    matchMedia.addListener(function () {
+      _this.mediaHandler(matchMedia, оbjectsFilter);
+    });
+    this.mediaHandler(matchMedia, оbjectsFilter);
+  }
+};
+DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
+  if (matchMedia.matches) {
+    for (let i = 0; i < оbjects.length; i++) {
+      const оbject = оbjects[i];
+      оbject.index = this.indexInParent(оbject.parent, оbject.element);
+      this.moveTo(оbject.place, оbject.element, оbject.destination);
+    }
+  } else {
+    for (let i = 0; i < оbjects.length; i++) {
+      const оbject = оbjects[i];
+      if (оbject.element.classList.contains(this.daClassname)) {
+        this.moveBack(оbject.parent, оbject.element, оbject.index);
+      }
+    }
+  }
+};
+
+// Функция перемещения
+DynamicAdapt.prototype.moveTo = function (place, element, destination) {
+  element.classList.add(this.daClassname);
+  if (place === "last" || place >= destination.children.length) {
+    destination.insertAdjacentElement("beforeend", element);
+    return;
+  }
+  if (place === "first") {
+    destination.insertAdjacentElement("afterbegin", element);
+    return;
+  }
+  destination.children[place].insertAdjacentElement("beforebegin", element);
+};
+
+// Функция возврата
+DynamicAdapt.prototype.moveBack = function (parent, element, index) {
+  element.classList.remove(this.daClassname);
+  if (parent.children[index] !== undefined) {
+    parent.children[index].insertAdjacentElement("beforebegin", element);
+  } else {
+    parent.insertAdjacentElement("beforeend", element);
+  }
+};
+
+// Функция получения индекса внутри родителя
+DynamicAdapt.prototype.indexInParent = function (parent, element) {
+  const array = Array.prototype.slice.call(parent.children);
+  return Array.prototype.indexOf.call(array, element);
+};
+
+// Функция сортировки массива по breakpoint и place
+// по возрастанию для this.type = min
+// по убыванию для this.type = max
+DynamicAdapt.prototype.arraySort = function (arr) {
+  if (this.type === "min") {
+    Array.prototype.sort.call(arr, function (a, b) {
+      if (a.breakpoint === b.breakpoint) {
+        if (a.place === b.place) {
+          return 0;
+        }
+        if (a.place === "first" || b.place === "last") {
+          return -1;
+        }
+        if (a.place === "last" || b.place === "first") {
+          return 1;
+        }
+        return a.place - b.place;
+      }
+      return a.breakpoint - b.breakpoint;
+    });
+  } else {
+    Array.prototype.sort.call(arr, function (a, b) {
+      if (a.breakpoint === b.breakpoint) {
+        if (a.place === b.place) {
+          return 0;
+        }
+        if (a.place === "first" || b.place === "last") {
+          return 1;
+        }
+        if (a.place === "last" || b.place === "first") {
+          return -1;
+        }
+        return b.place - a.place;
+      }
+      return b.breakpoint - a.breakpoint;
+    });
+    return;
+  }
+};
+const da = new DynamicAdapt("max");
+da.init();
+
+/***/ }),
+
 /***/ "./src/js/components/faq.js":
 /*!**********************************!*\
   !*** ./src/js/components/faq.js ***!
@@ -963,6 +1139,13 @@ faqParent.forEach(faqParent => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
+/* harmony import */ var _functions_header_height_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/header-height.js */ "./src/js/functions/header-height.js");
+/* harmony import */ var _functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions/disable-scroll.js */ "./src/js/functions/disable-scroll.js");
+/* harmony import */ var _functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions/enable-scroll.js */ "./src/js/functions/enable-scroll.js");
+
+
+
 
 
 /***/ }),
@@ -1172,6 +1355,136 @@ __webpack_require__.r(__webpack_exports__);
 
 const tabs = new graph_tabs__WEBPACK_IMPORTED_MODULE_0__["default"]("reviews");
 const tabsPrograms = new graph_tabs__WEBPACK_IMPORTED_MODULE_0__["default"]("programs");
+
+/***/ }),
+
+/***/ "./src/js/functions/burger.js":
+/*!************************************!*\
+  !*** ./src/js/functions/burger.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/disable-scroll.js */ "./src/js/functions/disable-scroll.js");
+/* harmony import */ var _functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/enable-scroll.js */ "./src/js/functions/enable-scroll.js");
+
+
+(function () {
+  const burger = document?.querySelector('[data-burger]');
+  const menu = document?.querySelector('[data-menu]');
+  const menuItems = document?.querySelectorAll('[data-menu-item]');
+  const overlay = document?.querySelector('[data-menu-overlay]');
+  burger?.addEventListener('click', e => {
+    burger?.classList.toggle('burger--active');
+    menu?.classList.toggle('menu--active');
+    if (menu?.classList.contains('menu--active')) {
+      burger?.setAttribute('aria-expanded', 'true');
+      burger?.setAttribute('aria-label', 'Закрыть меню');
+      (0,_functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
+    } else {
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.setAttribute('aria-label', 'Открыть меню');
+      (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    }
+  });
+  overlay?.addEventListener('click', () => {
+    burger?.setAttribute('aria-expanded', 'false');
+    burger?.setAttribute('aria-label', 'Открыть меню');
+    burger.classList.remove('burger--active');
+    menu.classList.remove('menu--active');
+    (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+  });
+  menuItems?.forEach(el => {
+    el.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.setAttribute('aria-label', 'Открыть меню');
+      burger.classList.remove('burger--active');
+      menu.classList.remove('menu--active');
+      (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    });
+  });
+})();
+
+/***/ }),
+
+/***/ "./src/js/functions/disable-scroll.js":
+/*!********************************************!*\
+  !*** ./src/js/functions/disable-scroll.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   disableScroll: () => (/* binding */ disableScroll)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars.js */ "./src/js/_vars.js");
+
+const disableScroll = () => {
+  const fixBlocks = document?.querySelectorAll('.fixed-block');
+  const pagePosition = window.scrollY;
+  const paddingOffset = `${window.innerWidth - _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.offsetWidth}px`;
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'none';
+  fixBlocks.forEach(el => {
+    el.style.paddingRight = paddingOffset;
+  });
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = paddingOffset;
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.add('dis-scroll');
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position = pagePosition;
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = `-${pagePosition}px`;
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/enable-scroll.js":
+/*!*******************************************!*\
+  !*** ./src/js/functions/enable-scroll.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   enableScroll: () => (/* binding */ enableScroll)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars.js */ "./src/js/_vars.js");
+
+const enableScroll = () => {
+  const fixBlocks = document?.querySelectorAll('.fixed-block');
+  const body = document.body;
+  const pagePosition = parseInt(_vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position, 10);
+  fixBlocks.forEach(el => {
+    el.style.paddingRight = '0px';
+  });
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = '0px';
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = 'auto';
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.remove('dis-scroll');
+  window.scroll({
+    top: pagePosition,
+    left: 0
+  });
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.removeAttribute('data-position');
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'smooth';
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/header-height.js":
+/*!*******************************************!*\
+  !*** ./src/js/functions/header-height.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getHeaderHeight: () => (/* binding */ getHeaderHeight)
+/* harmony export */ });
+const getHeaderHeight = () => {
+  const headerHeight = document?.querySelector('.header').offsetHeight;
+  document.querySelector(':root').style.setProperty('--header-height', `${headerHeight}px`);
+};
 
 /***/ }),
 

@@ -13,7 +13,6 @@
 
 // import './functions/fix-fullheight';
 
-// import { burger } from './functions/burger';
 
 // import { disableScroll } from './functions/disable-scroll';
 
