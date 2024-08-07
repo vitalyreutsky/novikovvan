@@ -8,6 +8,10 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    @include tablet {
+      gap: 20px;
+    }
   }
 
   &__title {
@@ -18,6 +22,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include tablet {
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__program {
@@ -35,6 +44,11 @@
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+
+    @include tablet {
+      min-height: 550px;
+      max-width: 265px;
+    }
 
     &::after,
     &::before {
@@ -83,6 +97,10 @@
     display: flex;
     max-width: 700px;
     width: 100%;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__program-slider {
@@ -102,6 +120,10 @@
       font-size: 16px;
 
       overflow: hidden;
+
+      @include tablet {
+        font-size: 14px;
+      }
     }
   }
 
@@ -116,11 +138,16 @@
       height: 3px;
       background-color: #6a3836;
       border-radius: 0;
+      margin: 0 5px !important;
       opacity: 1;
       transition: all 0.2s ease-in-out;
 
       &.swiper-pagination-bullet-active {
         background-color: $red;
+      }
+
+      @include tablet {
+        width: 27px;
       }
     }
   }
@@ -131,5 +158,9 @@
     min-width: auto;
     margin: 30px auto 0;
     z-index: 1;
+
+    @include tablet {
+      margin-top: 30px;
+    }
   }
 }

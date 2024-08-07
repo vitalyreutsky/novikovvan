@@ -102,6 +102,10 @@ h6 {
 p {
   &:not(:last-child) {
     margin-bottom: 15px;
+
+    @include tablet {
+      margin-bottom: 10px;
+    }
   }
 
   + *:not(div, p, ul, span) {
