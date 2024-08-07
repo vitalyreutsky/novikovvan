@@ -8,7 +8,7 @@ $faq_list = get_field('faq_list');
   <div class="container">
     <div class="faq__wrapper">
       <?php if ($title) : ?>
-        <h2 class="hero__title main-title"><?php echo $title; ?></h2>
+        <h2 class="faq__title main-title"><?php echo $title; ?></h2>
       <?php endif; ?>
 
       <div class="faq__list">
