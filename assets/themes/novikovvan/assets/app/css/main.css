@@ -104,6 +104,11 @@ a {
 section {
   padding: 100px 0;
 }
+@media (max-width: 1024px) {
+  section {
+    padding: 50px 0;
+  }
+}
 
 .site-container {
   overflow: hidden;
@@ -1290,11 +1295,24 @@ p + *:not(div, p, ul, span) {
   flex-shrink: 0;
   z-index: 1;
 }
+@media (max-width: 1024px) {
+  .about__container {
+    gap: 30px;
+  }
+}
 .about__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 50px;
+}
+@media (max-width: 1024px) {
+  .about__inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 .about__title {
   -ms-flex-negative: 0;
@@ -1352,6 +1370,11 @@ p + *:not(div, p, ul, span) {
   mask: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(20%, #fff), color-stop(80%, #fff), to(transparent));
   mask: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
 }
+@media (max-width: 1024px) {
+  .about .ms--images.ms-container--horizontal {
+    height: 300px;
+  }
+}
 .about .ms--images.ms-container--horizontal .ms-slide {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1381,6 +1404,11 @@ p + *:not(div, p, ul, span) {
   -ms-user-select: none;
   user-select: none;
 }
+@media (max-width: 1024px) {
+  .about .ms--images .ms-slide {
+    width: 300px;
+  }
+}
 .about .ms--images {
   left: 0;
 }
@@ -1388,6 +1416,12 @@ p + *:not(div, p, ul, span) {
   left: 20px;
   height: 100%;
   gap: 30px;
+}
+@media (max-width: 1024px) {
+  .about .ms--images.ms-container--horizontal .ms-track {
+    gap: 20px;
+    left: 0;
+  }
 }
 .about .ms--images .ms-slide__image-container {
   width: 100%;
@@ -1410,6 +1444,12 @@ p + *:not(div, p, ul, span) {
   width: 240px;
   height: 240px;
   max-width: 100%;
+}
+@media (max-width: 1024px) {
+  .about .ms--numbers.ms-container--horizontal {
+    width: 150px;
+    height: 150px;
+  }
 }
 .about .ms--numbers.ms-container--horizontal .ms-track {
   left: calc(50% - 120px);
@@ -1445,16 +1485,31 @@ p + *:not(div, p, ul, span) {
   user-select: none;
   overflow: hidden;
 }
+@media (max-width: 1024px) {
+  .about .ms--numbers .ms-slide {
+    height: 100px;
+  }
+}
 .about .ms--numbers {
   position: absolute;
   left: calc(50% - 530px);
   top: -100px;
   pointer-events: none;
 }
+@media (max-width: 1024px) {
+  .about .ms--numbers {
+    top: 50px;
+  }
+}
 .about .ms--numbers .ms-slide {
   font-size: 150px;
   font-weight: 700;
   color: #fff;
+}
+@media (max-width: 1024px) {
+  .about .ms--numbers .ms-slide {
+    font-size: 100px;
+  }
 }
 .about .ms--titles {
   position: relative;
@@ -1462,8 +1517,11 @@ p + *:not(div, p, ul, span) {
 }
 .about .ms--titles.ms-container--vertical {
   width: 400px;
-  height: 170px;
-  max-height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 200px;
+  max-height: 200px;
 }
 .about .ms--titles.ms-container--vertical .ms-track {
   -webkit-box-orient: vertical;
@@ -1509,6 +1567,11 @@ p + *:not(div, p, ul, span) {
   -ms-user-select: none;
   user-select: none;
 }
+@media (max-width: 1024px) {
+  .about .ms--titles .ms-slide {
+    width: 300px;
+  }
+}
 .about .ms--titles {
   position: absolute;
   left: calc(50% - 550px);
@@ -1522,10 +1585,22 @@ p + *:not(div, p, ul, span) {
   font-size: 3.3em;
   font-weight: 600;
 }
+@media (max-width: 1024px) {
+  .about .ms--titles .ms-slide {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
 .about .ms--titles .ms-slide h3 {
   margin: 0;
   font-size: 40px;
   text-shadow: 5px 5px 5px black;
+}
+@media (max-width: 1024px) {
+  .about .ms--titles .ms-slide h3 {
+    font-size: 30px;
+  }
 }
 .about .ms--links {
   position: relative;
@@ -1607,6 +1682,11 @@ p + *:not(div, p, ul, span) {
   margin: 0 5px;
   cursor: pointer;
 }
+@media (max-width: 1024px) {
+  .about .pagination__button {
+    width: 27px;
+  }
+}
 .about .pagination__button:before,
 .about .pagination__button:after {
   content: "";
@@ -1631,14 +1711,13 @@ p + *:not(div, p, ul, span) {
 .about .pagination__item--active .pagination__button:after {
   opacity: 1;
 }
-@media screen and (max-width: 860px) {
+@media (max-width: 1024px) {
   .about .ms--numbers {
-    left: calc(50% - 120px);
+    left: calc(50% - 150px);
   }
   .about .ms--titles {
-    left: calc(50% - 200px);
-    top: calc(50% - 135px);
-    text-align: center;
+    left: 0;
+    top: 7%;
   }
   .about .ms--links {
     left: calc(50% - 60px);
@@ -1652,12 +1731,12 @@ p + *:not(div, p, ul, span) {
     transform: translateX(-50%);
   }
 }
-@media screen and (max-width: 600px) {
+@media (max-width: 1024px) {
   .about .ms--images {
     overflow: visible;
   }
 }
-@media screen and (max-width: 400px) {
+@media (max-width: 1024px) {
   .about .ms--titles .ms-slide {
     -webkit-transform: scale(0.8);
     -ms-transform: scale(0.8);

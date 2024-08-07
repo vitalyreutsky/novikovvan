@@ -10,11 +10,19 @@
     gap: 70px;
     flex-shrink: 0;
     z-index: 1;
+
+    @include tablet {
+      gap: 30px;
+    }
   }
 
   &__inner {
     display: flex;
     gap: 50px;
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -67,6 +75,10 @@
     height: 500px;
     max-width: 100%;
     mask: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+
+    @include tablet {
+      height: 300px;
+    }
   }
 
   .ms--images.ms-container--horizontal .ms-slide {
@@ -89,6 +101,10 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    @include tablet {
+      width: 300px;
+    }
   }
 
   .ms--images {
@@ -98,6 +114,11 @@
     left: 20px;
     height: 100%;
     gap: 30px;
+
+    @include tablet {
+      gap: 20px;
+      left: 0;
+    }
   }
 
   .ms--images .ms-slide__image-container {
@@ -122,6 +143,11 @@
     width: 240px;
     height: 240px;
     max-width: 100%;
+
+    @include tablet {
+      width: 150px;
+      height: 150px;
+    }
   }
   .ms--numbers.ms-container--horizontal .ms-track {
     left: calc(50% - 120px);
@@ -148,6 +174,10 @@
     -ms-user-select: none;
     user-select: none;
     overflow: hidden;
+
+    @include tablet {
+      height: 100px;
+    }
   }
 
   .ms--numbers {
@@ -155,11 +185,19 @@
     left: calc(50% - 530px);
     top: -100px;
     pointer-events: none;
+
+    @include tablet {
+      top: 50px;
+    }
   }
   .ms--numbers .ms-slide {
     font-size: 150px;
     font-weight: 700;
     color: $white;
+
+    @include tablet {
+      font-size: 100px;
+    }
   }
 
   .ms--titles {
@@ -168,8 +206,9 @@
   }
   .ms--titles.ms-container--vertical {
     width: 400px;
-    height: 170px;
-    max-height: 100%;
+    height: fit-content;
+    min-height: 200px;
+    max-height: 200px;
   }
   .ms--titles.ms-container--vertical .ms-track {
     flex-direction: column;
@@ -200,6 +239,10 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    @include tablet {
+      width: 300px;
+    }
   }
 
   .ms--titles {
@@ -214,11 +257,19 @@
   .ms--titles .ms-slide {
     font-size: 3.3em;
     font-weight: 600;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
   }
   .ms--titles .ms-slide h3 {
     margin: 0;
     font-size: 40px;
     text-shadow: 5px 5px 5px black;
+
+    @include tablet {
+      font-size: 30px;
+    }
   }
 
   .ms--links {
@@ -289,6 +340,10 @@
     width: 36px;
     margin: 0 5px;
     cursor: pointer;
+
+    @include tablet {
+      width: 27px;
+    }
   }
   .pagination__button:before,
   .pagination__button:after {
@@ -314,15 +369,14 @@
     opacity: 1;
   }
 
-  @media screen and (max-width: 860px) {
+  @include tablet {
     .ms--numbers {
-      left: calc(50% - 120px);
+      left: calc(50% - 150px);
     }
 
     .ms--titles {
-      left: calc(50% - 200px);
-      top: calc(50% - 135px);
-      text-align: center;
+      left: 0;
+      top: 7%;
     }
 
     .ms--links {
@@ -336,12 +390,12 @@
       transform: translateX(-50%);
     }
   }
-  @media screen and (max-width: 600px) {
+  @include tablet {
     .ms--images {
       overflow: visible;
     }
   }
-  @media screen and (max-width: 400px) {
+  @include tablet {
     .ms--titles .ms-slide {
       transform: scale(0.8);
     }
