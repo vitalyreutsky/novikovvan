@@ -1,13 +1,13 @@
 .main {
   &__tabs {
-    @include tabs;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
     width: 100%;
+
+    @include tabs;
   }
 
   &__tabs-nav {
