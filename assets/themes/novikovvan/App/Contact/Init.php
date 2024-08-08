@@ -6,57 +6,35 @@ final class Init
 {
     public function __construct()
     {
-        add_action('wp_ajax_send_feedback', [self::class, 'send_feedback']);
-        add_action('wp_ajax_nopriv_send_feedback', [self::class, 'send_feedback']);
+        add_action('wp_ajax_send_feedback', [self::class, 'send_feedback_callback']);
+        add_action('wp_ajax_nopriv_send_feedback', [self::class, 'send_feedback_callback']);
     }
 
-    public static function send_feedback()
+    public static function send_feedback_callback()
     {
-        $fields = $_POST['fields'];
-        $token = $_POST['token'];
+        $data = $_POST['data'];
+        $data = json_decode(stripcslashes($data));
+        if (!$data->name) die(json_encode(array('result' => false, 'name' => 'name')));
+        if (!$data->email || !is_email($data->email)) die(json_encode(array('result' => false, 'name' => 'email')));
 
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
-        $params = [
-            'secret' => get_field('recapthca_secret_key', 'option'),
-            'response' => $token,
-            'remoteip' => $_SERVER['REMOTE_ADDR']
-        ];
+        $to = "vreutsky77@mail.ru";
+        $subject = 'Заявка с сайта ' . $_SERVER['SERVER_NAME'];
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $message = '
+	<h3>' . $subject . '</h3><br>
+	Name: <b>' . $data->name . '</b><br>
+	Email: <b>' . $data->email . '</b><br>
+	Message: <b>' . $data->message . '</b><br>';
+        $headers = array(
+            "Content-type: text/html; charset=utf-8",
+            "From: " . $_SERVER['SERVER_NAME'] . " <no-reply@" . $_SERVER['SERVER_NAME'] . ">",
+            "Reply-To: " . $data->name . " <" . $data->email . ">"
+        );
 
-        $response = curl_exec($ch);
-        if (!empty($response)) $decoded_response = json_decode($response);
+        $result = wp_mail($to, $subject, $message, $headers);
 
-        if ($decoded_response && $decoded_response->success && $decoded_response->action == 'add_comment' && $decoded_response->score > 0) {
-            $to = get_field('email_send_to', 'option');
-            $subject = 'Message from ' . $_SERVER['SERVER_NAME'];
-            $message = '<h1>' . $subject . '</h1><br>';
+        if (!$result) die(json_encode(array('result' => $result, 'message' => 'There was an error. Please try again.')));
 
-            foreach ($fields as $field) {
-                $message .= key($field) . ': <b>' . $field[key($field)] . '</b><br>';
-            }
-
-            $headers = array(
-                "Content-type: text/html; charset=utf-8",
-                "From: " . $_SERVER['SERVER_NAME'] . " <no-reply@" . $_SERVER['SERVER_NAME'] . ">",
-            );
-
-            $result = wp_mail($to, $subject, $message, $headers);
-
-            if (!$result) {
-                $return = array('result' => $result, 'message' => 'There was an error. Please try again.');
-            } else {
-                $return = array('result' => $result, 'message' => 'Thank you, the letter has been sent.');
-            }
-        } else {
-            $return = array('result' => false, 'message' => 'There was an error. Please try again.');
-        }
-
-        wp_send_json($return);
+        die(json_encode(array('result' => $result, 'message' => 'Thank you, the letter has been sent.')));
     }
 }

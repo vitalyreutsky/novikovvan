@@ -1,3 +1,4 @@
+import "./components/form.js";
 import "./components/dynamic-adapt.js";
 import "./components/header.js";
 import "./components/navigation.js";
