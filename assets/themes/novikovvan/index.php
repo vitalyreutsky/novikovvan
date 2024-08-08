@@ -10,5 +10,9 @@
  */
 
 get_header();
-
-the_content();
+?>
+<main class="main main--simple-page">
+   <?php the_content(); ?>
+</main>
+<?php
+get_footer(); ?>

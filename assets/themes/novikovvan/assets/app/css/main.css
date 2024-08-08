@@ -93,6 +93,9 @@ main {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
+main.main--simple-page {
+  padding-top: 50px;
+}
 
 img {
   width: 100%;

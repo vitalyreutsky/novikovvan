@@ -1,3 +1,9 @@
 import GraphTabs from "graph-tabs";
-const tabs = new GraphTabs("reviews");
-const tabsPrograms = new GraphTabs("programs");
+
+const tabsItems = document.querySelectorAll(".tabs");
+tabsItems.forEach((tabsItem) => {
+  if (tabsItem) {
+    const tabs = new GraphTabs("reviews");
+    const tabsPrograms = new GraphTabs("programs");
+  }
+});

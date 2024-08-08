@@ -14,6 +14,7 @@ final class Init
 		General\Look::class,
 		General\ProgramsList::class,
 		General\Faq::class,
+		General\ContentBlock::class,
 	);
 
 	public function __construct()
