@@ -2242,6 +2242,11 @@ p + *:not(div, p, ul, span) {
     padding: 10px;
   }
 }
+@media (min-width: 1025px) {
+  .faq__elem:hover .faq__question span {
+    left: 0;
+  }
+}
 .faq__question {
   position: relative;
   display: -webkit-box;
@@ -2301,6 +2306,8 @@ p + *:not(div, p, ul, span) {
   font-weight: 700;
   font-size: 180px;
   opacity: 0.1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .faq__answer {
   max-height: 0;

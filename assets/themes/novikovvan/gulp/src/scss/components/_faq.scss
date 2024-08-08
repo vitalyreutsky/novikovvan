@@ -48,6 +48,16 @@
     @include tablet {
       padding: 10px;
     }
+
+    @include for-desktop {
+      &:hover {
+        .faq__question {
+          span {
+            left: 0;
+          }
+        }
+      }
+    }
   }
 
   &__question {
@@ -100,6 +110,7 @@
       font-weight: 700;
       font-size: 180px;
       opacity: 0.1;
+      transition: all 0.2s ease-in-out;
     }
   }
 
