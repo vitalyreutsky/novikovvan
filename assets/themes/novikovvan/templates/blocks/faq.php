@@ -15,7 +15,7 @@ $faq_list = get_field('faq_list');
         <?php foreach ($faq_list as $key => $faq_elem) :
           $question = $faq_elem['question'];
           $answer = $faq_elem['answer']; ?>
-          <div class="faq__elem wrapper-white" <?php echo $key % 2 === 0 ? ' data-aos="fade-right"' : 'data-aos="fade-left"'; ?>>
+          <div class="faq__elem wrapper-white" data-aos="<?php echo $key % 2 === 0 ? 'fade-right' : 'fade-left'; ?>">
             <div class="faq__question">
               <span><?php echo $key + 1; ?></span>
               <h3><?php echo $question; ?></h3>
