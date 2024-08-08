@@ -2243,7 +2243,7 @@ p + *:not(div, p, ul, span) {
   }
 }
 @media (min-width: 1025px) {
-  .faq__elem:hover .faq__question span {
+  .faq__elem:hover:not(.active) .faq__question span {
     left: 0;
   }
 }
