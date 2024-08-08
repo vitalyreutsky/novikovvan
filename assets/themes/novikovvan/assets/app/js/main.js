@@ -2762,7 +2762,7 @@ const rules = [{
   ruleSelector: ".input-name",
   rules: [{
     rule: "customRegexp",
-    value: /^[A-zА-яЁё]+$/,
+    value: /^[A-zА-яЁё ]+$/,
     errorMessage: "Введите только буквы"
   }, {
     rule: "minLength",

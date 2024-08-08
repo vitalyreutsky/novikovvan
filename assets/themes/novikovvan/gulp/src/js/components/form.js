@@ -18,7 +18,7 @@ const rules = [
     rules: [
       {
         rule: "customRegexp",
-        value: /^[A-zА-яЁё]+$/,
+        value: /^[A-zА-яЁё ]+$/,
         errorMessage: "Введите только буквы",
       },
       {
