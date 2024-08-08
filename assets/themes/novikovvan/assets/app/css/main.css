@@ -703,135 +703,6 @@ p + *:not(div, p, ul, span) {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.header__nav .nav__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  gap: 20px;
-}
-.header__nav .nav__link {
-  font-size: 24px;
-  line-height: normal;
-  text-transform: uppercase;
-  color: #797878;
-  padding: 10px 20px;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-.header__nav .nav__link span {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-.header__nav .nav__link span::before {
-  width: 5px;
-  height: 5px;
-  background: transparent;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-top: 2px solid #ff0000;
-  border-left: 2px solid #ff0000;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-}
-.header__nav .nav__link span::after {
-  width: 5px;
-  height: 5px;
-  background: transparent;
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  border-right: 2px solid #ff0000;
-  border-bottom: 2px solid #ff0000;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-}
-.header__nav .nav__link::before {
-  width: 5px;
-  height: 5px;
-  background: transparent;
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  border-right: 2px solid #ff0000;
-  border-top: 2px solid #ff0000;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-}
-.header__nav .nav__link::after {
-  width: 5px;
-  height: 5px;
-  background: transparent;
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-left: 2px solid #ff0000;
-  border-bottom: 2px solid #ff0000;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-}
-.header__nav .nav__link.active::before {
-  opacity: 1;
-  right: 5px;
-  top: 5px;
-}
-.header__nav .nav__link.active::after {
-  opacity: 1;
-  left: 5px;
-  bottom: 5px;
-}
-.header__nav .nav__link.active span {
-  color: #ff0000;
-}
-.header__nav .nav__link.active span::before {
-  opacity: 1;
-  left: 5px;
-  top: 5px;
-}
-.header__nav .nav__link.active span::after {
-  opacity: 1;
-  right: 5px;
-  bottom: 5px;
-}
-@media (min-width: 1025px) {
-  .header__nav .nav__link:hover::before {
-    opacity: 1;
-    right: 5px;
-    top: 5px;
-  }
-  .header__nav .nav__link:hover::after {
-    opacity: 1;
-    left: 5px;
-    bottom: 5px;
-  }
-  .header__nav .nav__link:hover span {
-    color: #ff0000;
-  }
-  .header__nav .nav__link:hover span::before {
-    opacity: 1;
-    left: 5px;
-    top: 5px;
-  }
-  .header__nav .nav__link:hover span::after {
-    opacity: 1;
-    right: 5px;
-    bottom: 5px;
-  }
-}
 @media (max-width: 1024px) {
   .header__nav {
     position: fixed;
@@ -938,6 +809,146 @@ p + *:not(div, p, ul, span) {
     transition: top 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.nav__link {
+  font-size: 24px;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #797878;
+  padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+@media (max-width: 1024px) {
+  .nav__link::before, .nav__link::after {
+    display: none;
+  }
+}
+.nav__link span {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+@media (max-width: 1024px) {
+  .nav__link span::before, .nav__link span::after {
+    display: none;
+  }
+}
+.nav__link span::before {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 2px solid #ff0000;
+  border-left: 2px solid #ff0000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.nav__link span::after {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.nav__link::before {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-right: 2px solid #ff0000;
+  border-top: 2px solid #ff0000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.nav__link::after {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.nav__link.active::before {
+  opacity: 1;
+  right: 5px;
+  top: 5px;
+}
+.nav__link.active::after {
+  opacity: 1;
+  left: 5px;
+  bottom: 5px;
+}
+.nav__link.active span {
+  color: #ff0000;
+}
+.nav__link.active span::before {
+  opacity: 1;
+  left: 5px;
+  top: 5px;
+}
+.nav__link.active span::after {
+  opacity: 1;
+  right: 5px;
+  bottom: 5px;
+}
+@media (min-width: 1025px) {
+  .nav__link:hover::before {
+    opacity: 1;
+    right: 5px;
+    top: 5px;
+  }
+  .nav__link:hover::after {
+    opacity: 1;
+    left: 5px;
+    bottom: 5px;
+  }
+  .nav__link:hover span {
+    color: #ff0000;
+  }
+  .nav__link:hover span::before {
+    opacity: 1;
+    left: 5px;
+    top: 5px;
+  }
+  .nav__link:hover span::after {
+    opacity: 1;
+    right: 5px;
+    bottom: 5px;
   }
 }
 
@@ -2299,4 +2310,97 @@ p + *:not(div, p, ul, span) {
 }
 .faq__answer p {
   padding-top: 15px;
+}
+
+.content-block .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .footer .nav__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  .footer .nav__list {
+    gap: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .footer .nav__list {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+.footer .nav__link.active {
+  color: #ff0000;
+}
+@media (max-width: 768px) {
+  .footer .nav__link {
+    padding: 0;
+    font-size: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .footer .nav__link {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+.footer__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+@media (max-width: 768px) {
+  .footer__wrapper {
+    padding: 30px 0;
+    gap: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .footer__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.footer__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 170px;
+  height: auto;
+}
+@media (max-width: 1024px) {
+  .footer__logo {
+    max-width: 130px;
+  }
+}
+.footer__copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
 }/*# sourceMappingURL=main.css.map */

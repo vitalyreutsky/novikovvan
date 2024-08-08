@@ -1,4 +1,4 @@
-<section class="content-block">
+<section class="content-block bg-block">
     <div class="container" data-aos="fade-down">
         <InnerBlocks />
     </div>

@@ -15,25 +15,25 @@ $site_logo = get_field('site_logo', 'options');
         <nav class="nav" title="nav-menu">
           <ul class="list-reset nav__list">
             <li class="nav__item">
-              <a href="#about" class="nav__link navigation__item" data-menu-item>
+              <a href="<?php echo !is_front_page() ? get_home_url() . '/#about' : '#about' ?>" class="nav__link navigation__item" data-menu-item>
                 <span>Обо мне</span>
               </a>
             </li>
 
             <li class="nav__item">
-              <a href="#reviews" class="nav__link navigation__item" data-menu-item>
+              <a href="<?php echo !is_front_page() ? get_home_url() . '/#reviews' : '#reviews' ?>" class="nav__link navigation__item" data-menu-item>
                 <span>Отзывы</span>
               </a>
             </li>
 
             <li class="nav__item">
-              <a href="#programs" class="nav__link navigation__item" data-menu-item>
+              <a href="<?php echo !is_front_page() ? get_home_url() . '/#programs' : '#programs' ?>" class="nav__link navigation__item" data-menu-item>
                 <span>Программы тренировок</span>
               </a>
             </li>
 
             <li class="nav__item">
-              <a href="#faq" class="nav__link navigation__item" data-menu-item>
+              <a href="<?php echo !is_front_page() ? get_home_url() . '/#faq' : '#faq' ?>" class="nav__link navigation__item" data-menu-item>
                 <span>Вопросы</span>
               </a>
             </li>

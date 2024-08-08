@@ -1,2 +1,67 @@
 .footer {
+  .nav {
+    &__list {
+      @include tablet {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      @include small-tablet {
+        gap: 10px;
+      }
+
+      @include mobile {
+        align-items: center;
+      }
+    }
+
+    &__link {
+      &.active {
+        color: $red;
+      }
+
+      @include small-tablet {
+        padding: 0;
+        font-size: 20px;
+      }
+
+      @include mobile {
+        align-items: center;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 50px 0;
+
+    @include small-tablet {
+      padding: 30px 0;
+      gap: 10px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    max-width: 170px;
+    height: auto;
+
+    @include tablet {
+      max-width: 130px;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }

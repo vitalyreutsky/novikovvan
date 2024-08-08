@@ -46,10 +46,14 @@ class Init
 
     public function __construct()
     {
+        // acf polylang options
+        add_filter('bea.aofp.get_default', '__return_false');
+        add_filter('acf/load_value/type=text', [self::class, 'text_shortcode'], 10, 3);
         add_filter('body_class', [self::class, 'add_class_for_body']);
+
+        // shortcodes
         add_shortcode('current_month', [self::class, 'get_current_month']);
         add_shortcode('short_current_month', [self::class, 'get_short_current_month']);
-        add_shortcode('current_year', [self::class, 'get_current_year']);
         add_shortcode('current_year', [self::class, 'get_current_year']);
 
         // shortcodes for meta
@@ -85,5 +89,11 @@ class Init
         $classes[] = 'preload page';
 
         return $classes;
+    }
+
+    public static function text_shortcode($value)
+    {
+        if (is_admin()) return $value;
+        return do_shortcode($value);
     }
 }
