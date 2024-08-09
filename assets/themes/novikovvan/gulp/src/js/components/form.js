@@ -10,7 +10,7 @@ async function post(data) {
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
     }),
-    body: `action=send_feedback&data1=${data}`,
+    body: `action=send_feedback&data=${data}`,
   });
 
   const result = await response.json();
@@ -31,7 +31,7 @@ async function post(data) {
     formResultText.textContent = resultText;
 
     setTimeout(() => {
-      // form.classList.remove("result");
+      form.classList.remove("result");
 
       if (
         formResultText.classList.contains("success") ||

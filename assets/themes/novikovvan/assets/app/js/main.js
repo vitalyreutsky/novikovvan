@@ -2753,7 +2753,7 @@ async function post(data) {
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded"
     }),
-    body: `action=send_feedback&data1=${data}`
+    body: `action=send_feedback&data=${data}`
   });
   const result = await response.json();
   if (result) {
@@ -2768,8 +2768,7 @@ async function post(data) {
     form.classList.add("result");
     formResultText.textContent = resultText;
     setTimeout(() => {
-      // form.classList.remove("result");
-
+      form.classList.remove("result");
       if (formResultText.classList.contains("success") || formResultText.classList.contains("error")) {
         formResultText.classList.remove("success", "error");
       }
@@ -2970,7 +2969,6 @@ mainSliders.forEach(slider => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
-      centeredSlides: true,
       autoplay: {
         delay: 3000
       },

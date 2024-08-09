@@ -15,7 +15,6 @@ mainSliders.forEach((slider) => {
       slidesPerGroup: 1,
       speed: 700,
       loop: true,
-      centeredSlides: true,
 
       autoplay: {
         delay: 3000,

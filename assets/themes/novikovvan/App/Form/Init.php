@@ -16,7 +16,7 @@ final class Init
         if (!$data->name) die(json_encode(array('result' => false, 'message' => 'Произошла ошибка. Попробуйте снова.')));
         if (!$data->email || !is_email($data->email)) die(json_encode(array('result' => false, 'message' => 'Произошла ошибка. Попробуйте снова.')));
 
-        $to = "vreutsky77@mail.ru";
+        $to = get_field('mail', 'options');
         $subject = 'Заявка с сайта ' . $_SERVER['SERVER_NAME'];
         $subjectSecond = 'У вас новое сообщение от  ' . $data->name . ' с вашего сайта';
 

@@ -6,10 +6,10 @@ $title = get_field('title');
   <div class="container">
     <div class="contacts__wrapper">
       <?php if ($title) : ?>
-        <h2 class="contacts__title main-title"><?php echo $title; ?></h2>
+        <h2 class="contacts__title main-title" data-aos="zoom-in-up"><?php echo $title; ?></h2>
       <?php endif; ?>
 
-      <form class="form">
+      <form class="form" data-aos="zoom-in-up">
         <div class="form__fields">
           <div class="form__field form__field--name">
             <input type="text" name="name" id="name" placeholder="Ваше имя" class="form__field-input input-name input-reset">
@@ -24,7 +24,8 @@ $title = get_field('title');
           </div>
 
           <button class="btn btn-reset">
-            <span>Отправить</span>
+            <span></span>
+            Отправить
           </button>
         </div>
 

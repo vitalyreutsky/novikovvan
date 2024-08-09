@@ -10,6 +10,7 @@ $copyright = get_field('copyright', 'options');
 $mail = get_field('mail', 'options');
 ?>
 
+
 <footer class="footer">
   <div class="container">
     <div class="footer__wrapper">
