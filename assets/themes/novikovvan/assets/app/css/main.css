@@ -2428,8 +2428,25 @@ p + *:not(div, p, ul, span) {
   line-height: normal;
   padding: 20px;
   width: 100%;
+  color: #fff;
   background-color: transparent;
   border: 2px solid #ff0000;
+}
+.contacts .form__field input::-webkit-input-placeholder, .contacts .form__field textarea::-webkit-input-placeholder {
+  color: inherit;
+}
+.contacts .form__field input::-moz-placeholder, .contacts .form__field textarea::-moz-placeholder {
+  color: inherit;
+}
+.contacts .form__field input:-ms-input-placeholder, .contacts .form__field textarea:-ms-input-placeholder {
+  color: inherit;
+}
+.contacts .form__field input::-ms-input-placeholder, .contacts .form__field textarea::-ms-input-placeholder {
+  color: inherit;
+}
+.contacts .form__field input::placeholder,
+.contacts .form__field textarea::placeholder {
+  color: inherit;
 }
 .contacts .form__field textarea {
   resize: none;
