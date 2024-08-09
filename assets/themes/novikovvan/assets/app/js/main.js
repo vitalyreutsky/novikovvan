@@ -2768,7 +2768,8 @@ async function post(data) {
     form.classList.add("result");
     formResultText.textContent = resultText;
     setTimeout(() => {
-      form.classList.remove("result");
+      // form.classList.remove("result");
+
       if (formResultText.classList.contains("success") || formResultText.classList.contains("error")) {
         formResultText.classList.remove("success", "error");
       }

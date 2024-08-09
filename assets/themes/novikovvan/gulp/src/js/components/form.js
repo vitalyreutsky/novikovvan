@@ -31,7 +31,7 @@ async function post(data) {
     formResultText.textContent = resultText;
 
     setTimeout(() => {
-      form.classList.remove("result");
+      // form.classList.remove("result");
 
       if (
         formResultText.classList.contains("success") ||

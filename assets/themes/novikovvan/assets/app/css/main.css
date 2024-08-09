@@ -2343,6 +2343,11 @@ p + *:not(div, p, ul, span) {
   gap: 30px;
   z-index: 1;
 }
+@media (max-width: 768px) {
+  .contacts__wrapper {
+    gap: 20px;
+  }
+}
 .contacts .form {
   position: relative;
 }
@@ -2386,6 +2391,12 @@ p + *:not(div, p, ul, span) {
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
+@media (max-width: 768px) {
+  .contacts .form__fields {
+    -ms-grid-columns: (1fr)[1];
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .contacts .form__field {
   position: relative;
 }
@@ -2413,6 +2424,7 @@ p + *:not(div, p, ul, span) {
 .contacts .form__field input,
 .contacts .form__field textarea {
   font-size: 20px;
+  line-height: normal;
   padding: 20px;
   width: 100%;
   background-color: transparent;
@@ -2424,6 +2436,22 @@ p + *:not(div, p, ul, span) {
 }
 .contacts .form__field .just-validate-error-label {
   position: absolute;
+}
+@media (max-width: 768px) {
+  .contacts .form__field {
+    grid-area: auto;
+  }
+  .contacts .form__field input,
+  .contacts .form__field textarea {
+    padding: 10px;
+    font-size: 18px;
+  }
+  .contacts .form__field textarea {
+    min-height: 100px;
+  }
+  .contacts .form__field .just-validate-error-label {
+    font-size: 14px;
+  }
 }
 .contacts .form__result {
   position: absolute;
