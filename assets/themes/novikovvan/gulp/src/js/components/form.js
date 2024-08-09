@@ -10,7 +10,7 @@ async function post(data) {
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
     }),
-    body: `action=send_feedback&data=${data}`,
+    body: `action=send_feedback&data1=${data}`,
   });
 
   const result = await response.json();
