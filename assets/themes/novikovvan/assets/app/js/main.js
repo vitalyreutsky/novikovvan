@@ -2743,20 +2743,37 @@ faqParent.forEach(faqParent => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   post: () => (/* binding */ post)
-/* harmony export */ });
 /* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
 
+const form = document.querySelector(".form");
 async function post(data) {
   const _domain = window.location.origin;
-  let response = await fetch(`${_domain}/wp-admin/admin-ajax.php`, {
+  const response = await fetch(`${_domain}/wp-admin/admin-ajax.php`, {
     method: "post",
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded"
     }),
     body: `action=send_feedback&data=${data}`
   });
+  const result = await response.json();
+  if (result) {
+    const resultText = result.message;
+    const formResultText = form.querySelector(".form__result-text");
+    hideLoading(form);
+    if (result.result == true) {
+      formResultText.classList.add("success");
+    } else {
+      formResultText.classList.add("error");
+    }
+    form.classList.add("result");
+    formResultText.textContent = resultText;
+    setTimeout(() => {
+      form.classList.remove("result");
+      if (formResultText.classList.contains("success") || formResultText.classList.contains("error")) {
+        formResultText.classList.remove("success", "error");
+      }
+    }, 3000);
+  }
 }
 const rules = [{
   ruleSelector: ".input-name",
@@ -2784,11 +2801,17 @@ const rules = [{
     errorMessage: "Введите ваш e-mail"
   }]
 }];
-const afterForm = values => {
-  console.log("success");
+function afterForm(values) {
+  addLoading(form);
   post(JSON.stringify(values));
-};
+}
 (0,_functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_0__.validateForms)(".form", rules, afterForm);
+function addLoading(form) {
+  form.classList.add("loading");
+}
+function hideLoading(form) {
+  form.classList.remove("loading");
+}
 
 /***/ }),
 

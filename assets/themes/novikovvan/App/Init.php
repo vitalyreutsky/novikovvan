@@ -31,7 +31,7 @@ final class init
 			Helpers\Init::class,
 			Posts\Init::class,
 			SEO\Init::class,
-			Contact\Init::class,
+			Form\Init::class,
 			Woocomerce\Init::class
 		);
 	}

@@ -1,15 +1,46 @@
 import { validateForms } from "../functions/validate-forms.js";
 
-export async function post(data) {
+const form = document.querySelector(".form");
+
+async function post(data) {
   const _domain = window.location.origin;
 
-  let response = await fetch(`${_domain}/wp-admin/admin-ajax.php`, {
+  const response = await fetch(`${_domain}/wp-admin/admin-ajax.php`, {
     method: "post",
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
     }),
     body: `action=send_feedback&data=${data}`,
   });
+
+  const result = await response.json();
+
+  if (result) {
+    const resultText = result.message;
+    const formResultText = form.querySelector(".form__result-text");
+
+    hideLoading(form);
+
+    if (result.result == true) {
+      formResultText.classList.add("success");
+    } else {
+      formResultText.classList.add("error");
+    }
+
+    form.classList.add("result");
+    formResultText.textContent = resultText;
+
+    setTimeout(() => {
+      form.classList.remove("result");
+
+      if (
+        formResultText.classList.contains("success") ||
+        formResultText.classList.contains("error")
+      ) {
+        formResultText.classList.remove("success", "error");
+      }
+    }, 3000);
+  }
 }
 
 const rules = [
@@ -49,10 +80,18 @@ const rules = [
   },
 ];
 
-const afterForm = (values) => {
-  console.log("success");
+function afterForm(values) {
+  addLoading(form);
 
   post(JSON.stringify(values));
-};
+}
 
 validateForms(".form", rules, afterForm);
+
+function addLoading(form) {
+  form.classList.add("loading");
+}
+
+function hideLoading(form) {
+  form.classList.remove("loading");
+}

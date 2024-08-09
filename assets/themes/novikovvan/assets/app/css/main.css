@@ -818,50 +818,6 @@ p + *:not(div, p, ul, span) {
   }
 }
 
-.form__wrapper {
-  position: relative;
-  z-index: 1;
-}
-.form__items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-.form__item--name {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-area: 1/1/2/2;
-}
-.form__item--mail {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 1/2/2/3;
-}
-.form__item--message {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: 2/1/3/3;
-}
-.form__item .field {
-  font-size: 20px;
-  padding: 20px;
-  width: 100%;
-  background-color: transparent;
-  border: 2px solid #ff0000;
-}
-.form__item textarea {
-  resize: none;
-  min-height: 200px;
-}
-
 .nav__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1992,6 +1948,7 @@ p + *:not(div, p, ul, span) {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 30px;
   z-index: 1;
 }
 @media (max-width: 1024px) {
@@ -2211,7 +2168,7 @@ p + *:not(div, p, ul, span) {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
   -webkit-mask: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(10%, #fff), color-stop(90%, #fff), to(transparent));
   -webkit-mask: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
   mask: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(10%, #fff), color-stop(90%, #fff), to(transparent));
@@ -2372,6 +2329,128 @@ p + *:not(div, p, ul, span) {
 .content-block .container {
   position: relative;
   z-index: 1;
+}
+
+.contacts__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 1;
+}
+.contacts .form {
+  position: relative;
+}
+.contacts .form.result .form__fields {
+  opacity: 0;
+  visibility: hidden;
+}
+.contacts .form.result .form__result {
+  opacity: 1;
+  visibility: visible;
+}
+.contacts .form__fields {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.contacts .form__field {
+  position: relative;
+}
+.contacts .form__field--name {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1/1/2/2;
+}
+.contacts .form__field--mail {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1/2/2/3;
+}
+.contacts .form__field--message {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2/1/3/3;
+}
+.contacts .form__field input,
+.contacts .form__field textarea {
+  font-size: 20px;
+  padding: 20px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #ff0000;
+}
+.contacts .form__field textarea {
+  resize: none;
+  min-height: 200px;
+}
+.contacts .form__field .just-validate-error-label {
+  position: absolute;
+}
+.contacts .form__result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid #ff0000;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+.contacts .form__result-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+.contacts .form__result-text.success::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='800px' height='800px' viewBox='0 0 512 512' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Esuccess%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='add-copy' fill='%234bef6f' transform='translate(42.666667, 42.666667)'%3E%3Cpath d='M213.333333,3.55271368e-14 C95.51296,3.55271368e-14 3.55271368e-14,95.51296 3.55271368e-14,213.333333 C3.55271368e-14,331.153707 95.51296,426.666667 213.333333,426.666667 C331.153707,426.666667 426.666667,331.153707 426.666667,213.333333 C426.666667,95.51296 331.153707,3.55271368e-14 213.333333,3.55271368e-14 Z M213.333333,384 C119.227947,384 42.6666667,307.43872 42.6666667,213.333333 C42.6666667,119.227947 119.227947,42.6666667 213.333333,42.6666667 C307.43872,42.6666667 384,119.227947 384,213.333333 C384,307.43872 307.438933,384 213.333333,384 Z M293.669333,137.114453 L323.835947,167.281067 L192,299.66912 L112.916693,220.585813 L143.083307,190.4192 L192,239.335893 L293.669333,137.114453 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.contacts .form__result-text.error::before {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23ff0000' width='800px' height='800px' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z'/%3E%3Cpath d='M11 7h2v7h-2zm0 8h2v2h-2z'/%3E%3C/svg%3E");
+}
+.contacts .form__result-text::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 1024px) {

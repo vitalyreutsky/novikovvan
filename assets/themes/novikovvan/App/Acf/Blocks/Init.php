@@ -15,7 +15,7 @@ final class Init
 		General\ProgramsList::class,
 		General\Faq::class,
 		General\ContentBlock::class,
-		General\Form::class,
+		General\Contacts::class,
 	);
 
 	public function __construct()
